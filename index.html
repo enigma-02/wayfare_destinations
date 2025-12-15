@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wayfare - 5 Day Planner</title>
+    <link rel="stylesheet" href="planner.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-overlay"></div>
+    
+    <div class="container">
+        <header>
+            <h1 class="logo">Wayfare<span>.</span></h1>
+            <p class="subtitle">Your 5-Day Journey Starts Here</p>
+        </header>
+
+        <div class="category-tabs">
+            <button class="tab-btn active" onclick="showCategory('devotional')">Devotional</button>
+            <button class="tab-btn" onclick="showCategory('romantic')">Romantic</button>
+            <button class="tab-btn" onclick="showCategory('solo')">Solo Trip</button>
+            <button class="tab-btn" onclick="showCategory('adventurous')">Adventurous</button>
+            <button class="tab-btn" onclick="showCategory('family')">Family Trip (#famjam)</button>
+        </div>
+
+        <div id="destination-selector" class="dest-selector">
+            </div>
+
+        <div id="itinerary-card" class="itinerary-card hidden">
+            <h2 id="itinerary-title">Itinerary Details</h2>
+            <div class="table-responsive">
+                <table id="planner-table">
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>Destination/Activity</th>
+                            <th>Lunch Spot</th>
+                            <th>Evening Experience</th>
+                        </tr>
+                    </thead>
+                    <tbody id="planner-body">
+                        </tbody>
+                </table>
+            </div>
+            <a href="https://enigma-02.github.io/wayfare_book_now_form/" 
+       target="_blank" 
+       class="book-now-btn">Book Now</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

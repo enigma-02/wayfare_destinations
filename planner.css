@@ -1,0 +1,177 @@
+:root {
+    /* Updated Primary Color for Devotional Theme */
+    --primary-color: #ff9100; /* Bright Orange/Saffron */
+    --secondary-color: #e65100; /* Deep Orange */
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --text-light: #f0f0f0;
+    
+    /* !!! ADDED: New variable for dynamic background !!! */
+    --background-gradient: radial-gradient(circle at top right, #331a00 0%, #000000 100%);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #0f0f12; /* Dark background */
+    color: var(--text-light);
+    overflow-x: hidden;
+    /* !!! ADDED: Transition for text color changes !!! */
+    transition: color 0.3s ease; 
+}
+
+/* Background overlay with a warm gradient */
+.background-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    
+    /* !!! EDITED: Use the new CSS variable for the background !!! */
+    background: var(--background-gradient);
+    
+    z-index: -1;
+    
+    /* !!! ADDED: Transition for smooth background changes !!! */
+    transition: background 0.5s ease; 
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.logo { font-size: 3rem; margin-bottom: 0; }
+.logo span { color: var(--primary-color); } /* Uses primary color */
+.subtitle { color: #aaa; margin-top: 5px; }
+
+/* Category Tabs */
+.category-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 40px 0;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    padding: 12px 25px;
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+    color: var(--text-light);
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tab-btn.active, .tab-btn:hover {
+    background: var(--primary-color); /* Uses primary color */
+    box-shadow: 0 0 15px var(--primary-color); /* Uses primary color */
+    border-color: transparent;
+    color: #000; 
+    font-weight: bold;
+}
+
+/* Destination Buttons */
+.dest-selector {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.dest-btn {
+    background: transparent;
+    border: 1px solid var(--secondary-color); /* Uses secondary color */
+    color: var(--primary-color); /* Uses primary color */
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.dest-btn:hover {
+    background: var(--secondary-color); /* Uses secondary color */
+    color: white;
+    box-shadow: 0 0 10px var(--secondary-color); /* Uses secondary color */
+}
+
+/* Itinerary Table Card (Glassmorphism) */
+.itinerary-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    animation: fadeIn 0.5s ease;
+}
+
+.hidden { display: none; }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Table Header (Themed) */
+th {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    text-align: left;
+    color: var(--primary-color); /* Uses primary color */
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid var(--glass-border);
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+/* Hover effect on table rows */
+tr:hover { 
+    background: rgba(255, 255, 255, 0.05); 
+    color: var(--primary-color); /* Uses primary color */
+}
+/* --- BOOK NOW BUTTON STYLING --- */
+.book-now-btn {
+    display: inline-block;
+    /* Spacing below the table */
+    margin-top: 30px; 
+    /* Padding and look */
+    padding: 15px 40px;
+    background: var(--primary-color); /* Uses the active category color */
+    color: #000; /* Dark text on bright button */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    transition: 0.3s;
+    /* Subtle shadow for depth */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); 
+}
+
+.book-now-btn:hover {
+    background: var(--secondary-color); /* Uses the darker theme color on hover */
+    color: #fff;
+    box-shadow: 0 4px 25px var(--secondary-color);
+    transform: translateY(-2px); /* Lift effect */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 600px) {
+    .category-tabs {
+        flex-direction: column;
+    }
+    .table-responsive {
+        overflow-x: auto; /* Allows table to scroll horizontally on small screens */
+    }
+}
